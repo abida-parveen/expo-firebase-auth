@@ -20,19 +20,19 @@ const Signin = () => {
       id: 1,
       title: "Google",
       icon: require("../../../assets/icons/google.png"),
-      color: "red",
+      color: "google-red",
     },
     {
       id: 2,
       title: "Facebook",
       icon: require("../../../assets/icons/facebook.png"),
-      color: "fb_blue",
+      color: "fb-blue",
     },
     {
       id: 3,
       title: "Twitter",
       icon: require("../../../assets/icons/twitter.png"),
-      color: "twitter_blue",
+      color: "twitter-blue",
     },
   ];
   return (
@@ -45,39 +45,50 @@ const Signin = () => {
         className="flex-1"
       >
         <ScrollView>
-          <View className="flex-1 items-center justify-evenly h-screen w-full">
-            <View className="h-52 w-52 items-center justify-center rounded-full bg-white overflow-hidden">
-              <Image
-                source={require("../../../assets/logo.png")}
-                className="h-4/5 w-4/5"
-              />
+          <View className="flex-1 items-center justify-between h-screen w-full">
+            <View className="h-2/5 justify-end">
+              <View className="h-52 w-52 items-center justify-center rounded-full bg-white overflow-hidden">
+                <Image
+                  source={require("../../../assets/logo.png")}
+                  className="h-4/5 w-4/5"
+                />
+              </View>
             </View>
             <View className="w-11/12">
-              <InputField
-                handleChange={handleEmail}
-                value={email}
-                label="Email"
-              />
-              <InputField
-                handleChange={handlePassword}
-                password={true}
-                value={password}
-                label="Password"
-              />
-              <CustomButton value={"Sign In"} />
-              <View className="flex-row justify-between mt-3">
+              <View>
+                <InputField
+                  handleChange={handleEmail}
+                  value={email}
+                  label="Email"
+                />
+                <InputField
+                  handleChange={handlePassword}
+                  password={true}
+                  value={password}
+                  label="Password"
+                />
+                <View className="my-2 self-end">
+                  <TouchableOpacity>
+                    <Text className="text-white font-heeboMedium">
+                      Forgotten Password?
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+                <CustomButton value={"Sign In"} />
+              </View>
+              <View className="flex-row justify-between my-8">
                 {icons.map((item) => (
                   <IconButton key={item.id} data={item} />
                 ))}
               </View>
-            </View>
-            <View className="absolute bottom-2 flex-row">
-              <Text className="text-white font-heeboRegular">
-                Don't have an account?{" "}
-              </Text>
-              <TouchableOpacity>
-                <Text className="text-primary font-heeboMedium">Sign In</Text>
-              </TouchableOpacity>
+              <View className="flex-row justify-center">
+                <Text className="text-white font-heeboRegular">
+                  Don't have an account?{" "}
+                </Text>
+                <TouchableOpacity>
+                  <Text className="text-primary font-heeboMedium">Sign In</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </ScrollView>
