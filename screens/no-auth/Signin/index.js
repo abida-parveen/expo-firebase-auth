@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import CustomButton from "../../../components/form/CustomButton";
 import InputField from "../../../components/form/InputField";
-import IconButton from "../../../components/common/IconButton";
+import IconButton from "./IconButton";
 
 const Signin = ({navigation}) => {
   const [email, setEmail] = useState("");

@@ -1,42 +1,30 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useState } from "react";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import CustomButton from "../../../components/form/CustomButton";
 import InputField from "../../../components/form/InputField";
-import IconButton from "../../../components/common/IconButton";
 
 const Signup = () => {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
+  const [confirmPass, setConfirmPass] = useState("");
+  const handleFname = (e) => {
+    setFname(e.target.value);
   };
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
+  const handleLname= (e) => {
+    setLname(e.target.value);
   };
-
-  const icons = [
-    {
-      id: 1,
-      title: "Google",
-      icon: require("../../../assets/icons/google.png"),
-      color: "google-red",
-    },
-    {
-      id: 2,
-      title: "Facebook",
-      icon: require("../../../assets/icons/facebook.png"),
-      color: "fb-blue",
-    },
-    {
-      id: 3,
-      title: "Twitter",
-      icon: require("../../../assets/icons/twitter.png"),
-      color: "twitter-blue",
-    },
-  ];
+   const handleEmail = (e) => {
+     setEmail(e.target.value);
+   };
+   const handlePassword = (e) => {
+     setPassword(e.target.value);
+   };
+   const handleConfirmPass = (e) => {
+     setConfirmPass(e.target.value);
+   };
   return (
     <View className="flex-1">
       <LinearGradient
@@ -50,12 +38,12 @@ const Signup = () => {
           <View className="flex-1 items-center justify-center h-screen w-full">
             <View className="h-4/5 justify-evenly w-11/12">
               <InputField
-                handleChange={handleEmail}
+                handleChange={handleFname}
                 value={fname}
                 label="First Name"
               />
               <InputField
-                handleChange={handleEmail}
+                handleChange={handleLname}
                 value={lname}
                 label="Last Name"
               />
@@ -71,9 +59,9 @@ const Signup = () => {
                 label="Password"
               />
               <InputField
-                handleChange={handlePassword}
+                handleChange={handleConfirmPass}
                 password={true}
-                value={password}
+                value={confirmPass}
                 label="Confirm Password"
               />
               <CustomButton value={"Sign Up"} />
