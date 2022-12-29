@@ -3,9 +3,9 @@ import { useState } from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import CustomButton from "../../../components/form/CustomButton";
 import InputField from "../../../components/form/InputField";
-import IconButton from "./IconButton";
+import IconButton from "../../../components/common/IconButton";
 
-const Signin = () => {
+const Signin = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleEmail = (e) => {
@@ -54,7 +54,7 @@ const Signin = () => {
                 />
               </View>
             </View>
-            <View className="w-11/12">
+            <View className="w-11/12 mb-2">
               <View>
                 <InputField
                   handleChange={handleEmail}
@@ -85,7 +85,7 @@ const Signin = () => {
                 <Text className="text-white font-heeboRegular">
                   Don't have an account?{" "}
                 </Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("signup")}>
                   <Text className="text-primary font-heeboMedium">Sign In</Text>
                 </TouchableOpacity>
               </View>
