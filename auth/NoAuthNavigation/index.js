@@ -4,15 +4,13 @@ import Signin from "../../screens/no-auth/Signin";
 import Signup from "../../screens/no-auth/Signup";
 
 const NoAuthNavigation = () => {
-    const { Navigator, Screen } = createNativeStackNavigator();
+  const { Navigator, Screen } = createNativeStackNavigator();
   return (
-    <NavigationContainer>
-      <Navigator screenOptions={{ headerShown: false }}>
-        <Screen name="signin" component={Signin} />
-        <Screen name="signup" component={Signup} />
-      </Navigator>
-    </NavigationContainer>
+    <Navigator screenOptions={{ headerShown: false }}>
+      <Screen name="signin" component={Signin} />
+      <Screen name="signup" component={Signup} />
+    </Navigator>
   );
-}
+};
 
-export default NoAuthNavigation
+export default NoAuthNavigation;

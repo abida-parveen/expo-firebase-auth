@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { View } from "react-native";
-import NoAuthNavigation from "./auth/NoAuthNavigation";
 import * as SplashScreen from "expo-splash-screen";
 import useFonts from "./hooks/useFonts";
+import { Provider } from "react-redux";
+import store from "./state-management/store";
+import Auth from "./auth";
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -19,19 +21,21 @@ export default function App() {
     }
     prepare();
   }, []);
-   const onLayoutRootView = useCallback(async () => {
-     if (appIsReady) {
-       await SplashScreen.hideAsync();
-     }
-   }, [appIsReady]);
+  const onLayoutRootView = useCallback(async () => {
+    if (appIsReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
 
-   if (!appIsReady) {
-     return null;
-   }
+  if (!appIsReady) {
+    return null;
+  }
 
   return (
-    <View className="flex-1 box-border" onLayout={onLayoutRootView}>
-      <NoAuthNavigation />
-    </View>
+    <Provider store={store}>
+      <View className="flex-1 box-border" onLayout={onLayoutRootView}>
+        <Auth />
+      </View>
+    </Provider>
   );
 }
